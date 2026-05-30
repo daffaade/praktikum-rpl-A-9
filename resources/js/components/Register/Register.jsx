@@ -10,6 +10,7 @@ const Register = () => {
     const [formData, setFormData] = useState({
         nama_lengkap: '',
         nomor_telepon: '',
+        alamat_kost: '',
         email: '',
         password: '',
         password_confirmation: '',
@@ -68,6 +69,7 @@ const Register = () => {
                 password: formData.password,
                 password_confirmation: formData.password_confirmation,
                 nomor_telepon: formData.nomor_telepon,
+                alamat_kost: formData.alamat_kost,
             });
 
             const { data } = response.data;
@@ -172,6 +174,28 @@ const Register = () => {
                             {fieldErrors.nomor_telepon && (
                                 <span className="register-field-error">
                                     {fieldErrors.nomor_telepon[0]}
+                                </span>
+                            )}
+                        </div>
+
+                        {/* Alamat Kost */}
+                        <div className="register-field">
+                            <label className="register-label" htmlFor="alamatKost">
+                                Alamat Kost
+                            </label>
+                            <input
+                                className="register-input"
+                                id="alamatKost"
+                                name="alamat_kost"
+                                type="text"
+                                placeholder="Masukkan alamat kost..."
+                                required
+                                value={formData.alamat_kost}
+                                onChange={handleChange}
+                            />
+                            {fieldErrors.alamat_kost && (
+                                <span className="register-field-error">
+                                    {fieldErrors.alamat_kost[0]}
                                 </span>
                             )}
                         </div>
